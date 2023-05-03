@@ -2,8 +2,6 @@ import React, { Component, useEffect, useState } from 'react'
 import Products from '../Products/Products'
 
 export default function Body() {
-    const goods = JSON.parse(localStorage.getItem('goods'));
-    const myArray = require('../JSON/JSON');
     const [options, setOptions] = useState([]);
     const [optionsItem, setOptionsItem] = useState([]);
     const [currency, setCurrency] = useState([]);
@@ -12,9 +10,9 @@ export default function Body() {
     
     
     useEffect(() => {
-        const goodss = JSON.parse(localStorage.getItem('goods'));
-        if(goodss){
-            goodss.forEach(item => {
+        const goods = JSON.parse(localStorage.getItem('goods'));
+        if(goods){
+            goods.forEach(item => {
                 options.push(item.brand)
                 currency.push(item.price_sign)
             })
@@ -45,6 +43,7 @@ export default function Body() {
         }
     }
     function getCurrency(e) {
+        const goods = JSON.parse(localStorage.getItem('goods'));
         let filteredProducts = goods.filter(item => {
             if(e.target.value == '$'){
                 return item.price_sign == null
@@ -60,12 +59,14 @@ export default function Body() {
 
     function getValueInSearch(e) {
         e.preventDefault()
+        const goods = JSON.parse(localStorage.getItem('goods'));
         let filteredProducts = goods.filter(item => {
             return item.name.toLowerCase().includes(e.target.value) || item.name.includes(e.target.value)
         })
         setProducts(filteredProducts)
     }
     function getSortGoods(e) {
+        const goods = JSON.parse(localStorage.getItem('goods'));
         if(e.target.value == 'price'){
             let sortedProducts = goods.sort((a, b) => {
                 return b.price - a.price
@@ -73,6 +74,7 @@ export default function Body() {
             setProducts(sortedProducts)
         }
         if(e.target.value == 'alphabet'){
+            const goods = JSON.parse(localStorage.getItem('goods'));
             let sortedProducts = goods.sort(function(a, b){
                 var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
                 if (nameA < nameB)
