@@ -11,8 +11,10 @@ export function Products(props) {
     const [titles, setTitles] = useState('');
     const [dellItem, setDellItem] = useState('');
     const [filteredProduct, setFilteredProduct] = useState([]);
-
-    useEffect(() => {
+    if(myArray.goods){
+        localStorage.setItem('goods', JSON.stringify(myArray.goods))
+    }
+        useEffect(() => {
         filteredProduct.splice(0)
         filteredProduct.push(...props.filteredProduct)
         let a = document.querySelector('.product-list.js-product-list')
@@ -21,9 +23,7 @@ export function Products(props) {
     }, [props.filteredProduct])
 
     useEffect(() => {
-        if(myArray.goods){
-            localStorage.setItem('goods', JSON.stringify(myArray.goods))
-            const items = JSON.parse(localStorage.getItem('goods'));
+        const items = JSON.parse(localStorage.getItem('goods'));
             if(items){
                 setGoods(items)
                 showGoods(items)
@@ -31,9 +31,8 @@ export function Products(props) {
                 let products = document.querySelectorAll('.js-product');
                 setRemoveToCartHandler(products)
             }
-        }
     }, [])
-           
+                
     function showGoods(goods){
         goods.map(item => {
             const article = document.createElement('article');

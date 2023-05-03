@@ -3,6 +3,7 @@ import Products from '../Products/Products'
 
 export default function Body() {
     const goods = JSON.parse(localStorage.getItem('goods'));
+    const myArray = require('../JSON/JSON');
     const [options, setOptions] = useState([]);
     const [optionsItem, setOptionsItem] = useState([]);
     const [currency, setCurrency] = useState([]);
@@ -10,31 +11,37 @@ export default function Body() {
     const [products, setProducts] = useState([]);
     
     
-    if(goods){
-        goods.forEach(item => {
-            options.push(item.brand)
-            currency.push(item.price_sign)
-        })
-        let countArr = Array.from(new Set(options));
-        optionsItem.splice(0)
-        countArr.forEach((item) => {
-            optionsItem.push(item)
-        })
-        let currencyArr = Array.from(new Set(currency));
-        currencyItem.splice(0)
-        currencyArr.forEach((item, index) => {
-            currencyItem.push(item)
-            if(item == null){
-                currencyItem.splice(index, 1, "$")
-            }
-        })
-    }
+    useEffect(() => {
+        const goodss = JSON.parse(localStorage.getItem('goods'));
+        if(goodss){
+            goodss.forEach(item => {
+                options.push(item.brand)
+                currency.push(item.price_sign)
+            })
+            let countArr = Array.from(new Set(options));
+            optionsItem.splice(0)
+            countArr.forEach((item) => {
+                optionsItem.push(item)
+            })
+            let currencyArr = Array.from(new Set(currency));
+            currencyItem.splice(0)
+            currencyArr.forEach((item, index) => {
+                currencyItem.push(item)
+                if(item == null){
+                    currencyItem.splice(index, 1, "$")
+                }
+            })
+        }
+    }, [])
     function getNameOption(e) {
-        let filteredProduct = goods.filter(item => item.brand == e.target.value)
-        if(filteredProduct.length > 0){
-            setProducts(filteredProduct)
-        } else{
-            setProducts(goods)
+        const goods = JSON.parse(localStorage.getItem('goods'));
+        if(goods){
+            let filteredProduct = goods.filter(item => item.brand == e.target.value)
+            if(filteredProduct.length > '0'){
+                setProducts(filteredProduct)
+            } else{
+                setProducts(goods)
+            }
         }
     }
     function getCurrency(e) {
