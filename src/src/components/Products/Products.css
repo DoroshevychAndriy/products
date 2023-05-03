@@ -13,6 +13,9 @@
 .js-product{
     margin-bottom: 8px;
 }
+.js-goods-filter{
+    width: 145px;
+}
 .tile {
     position: relative;
     width: calc(25% - 8px * 3 / 4);
