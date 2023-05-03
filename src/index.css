@@ -1,0 +1,54 @@
+@import './src/components/body/body.css';
+@import './src/components/Products/Products.css';
+@import './src/components/Notification/Notification.css';
+@import './src/components/Order/Order.css';
+@import './src/components/Cart/Cart.css';
+@import './src/components/header/Header.css';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  max-width: 1000px;
+  padding: 0;
+  margin: 0 auto 50px;
+}
+.hidden {
+  display: none;
+}
+.active{
+  display: flex;
+}
+.btn {
+  padding: 10px 20px;
+  background: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: .3s;
+}
+.btn:hover {
+  background: #58a158;
+}
+.btn--blue {
+  background: navy;
+}
+.btn--blue:hover {
+  background: #6b6bc9;
+}

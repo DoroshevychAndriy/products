@@ -1,0 +1,128 @@
+.tile__prices{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.js-product-list article:not(:last-child){
+    margin-right: 6px;
+}
+.js-product{
+    margin-bottom: 8px;
+}
+.tile {
+    position: relative;
+    width: calc(25% - 8px * 3 / 4);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: .3s;
+}
+.tile:hover {
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
+}
+.tile__link {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: navy;
+    font-family: sans-serif;
+}
+.tile__top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.js-tile-delete{
+    margin-left: 20px;
+} 
+.tile__badge {
+    background: navy;
+    padding: 5px 10px;
+    color: white;
+    font-size: 12px;
+}
+.tile__badge--new {
+    background: navy;
+}
+.tile__badge--sale {
+    background: red;
+}
+.tile__image {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    padding: 20px 0;
+}
+.tile__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.tile__title {
+    display: block;
+    margin: 20px 0;
+    font-weight: 600;
+}
+.tile__old-price {
+    margin-right: 5px;
+    color: grey;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+.tile__total-price {
+    color: navy;
+}
+.tile__badge__top{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.tile__new-price {
+    color: red;
+}
+.close {
+    position: absolute;
+    right: 5px;
+    top: 25%;
+    width: 30px;
+    height: 30px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .5s;
+} 
+.close:hover {
+    transform: rotate(90deg);
+}
+.close span {
+    width: 10px;
+    height: 1px;
+    background: #000;
+    position: absolute;
+}
+.close span:first-child {
+    transform: rotate(45deg);
+}
+.close span:last-child {
+    transform: rotate(135deg);
+}
+.tile__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tile__count__quantity{
+    display: flex;
+    align-items: center;
+}
+.tile__count{
+    margin: 0 5px;
+    font-size: 17px;
+}

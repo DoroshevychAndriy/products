@@ -1,0 +1,85 @@
+.header {
+    position: sticky;
+    top: 0;
+    box-shadow: 4px 2px 12px rgba(0, 0, 0, 0.8);
+    background: white;
+    z-index: 1;
+}
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo {
+    display: flex;
+    width: 100px;
+}
+.cart-item__remove {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    padding: 15px;
+    background: url(../img/icons8-delete-80.png) no-repeat center/cover;
+}
+.header__logo img {
+    width: 100%;
+}
+.info__item {
+    position: relative;
+}
+.count__input{
+    width: 54px;
+    text-align: center;
+    padding: 0 0px 0 14px;
+} 
+.info__count {
+    position: absolute;
+    top: 2px;
+    color: navy;
+    height: 28px;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+.info {
+    display: flex;
+}
+.info__item.user-info{
+    margin-right: 10px;
+}
+.header__info .info__item{
+    margin-right: 10px;
+}
+.user-info {
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: navy;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+.nav li:not(:last-child){
+    margin-right: 10px;
+}
+.nav__item a {
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px;
+  font-family: sans-serif;
+}
+.nav__item a:hover {
+  text-decoration: underline;
+}
