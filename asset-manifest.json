@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/proba-app/static/css/main.d3199922.css",
-    "main.js": "/proba-app/static/js/main.10012870.js",
+    "main.js": "/proba-app/static/js/main.dbb05e62.js",
     "static/media/logo.jpg": "/proba-app/static/media/logo.83ae1ab405c931520ce9.jpg",
     "index.html": "/proba-app/index.html",
     "main.d3199922.css.map": "/proba-app/static/css/main.d3199922.css.map",
-    "main.10012870.js.map": "/proba-app/static/js/main.10012870.js.map"
+    "main.dbb05e62.js.map": "/proba-app/static/js/main.dbb05e62.js.map"
   },
   "entrypoints": [
     "static/css/main.d3199922.css",
-    "static/js/main.10012870.js"
+    "static/js/main.dbb05e62.js"
   ]
 }
