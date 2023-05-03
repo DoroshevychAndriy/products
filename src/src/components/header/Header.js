@@ -1,9 +1,9 @@
 import React, { Component, useState } from 'react'
 import Logo from '../img/logo.jpg'
+// import goods from '../JSON/JSON'
 
 function Header() {
     const [count, setCount] = useState(1);
-    
     function showPopupCart(e) {       
         let list = document.querySelector('.js-popup-cart-list');
         const item2 = JSON.parse(localStorage.getItem('cart2'));

@@ -4,6 +4,7 @@ import Order from '../Order/Order';
 import Notification from '../Notification/Notification';
 
 export function Products(props) {
+    const myArray = require('../JSON/JSON');
     const [goods, setGoods] = useState([])
     const [productCart, setProductCart] = useState([]);
     const [productCart2, setProduct2Cart] = useState([]);
@@ -19,31 +20,20 @@ export function Products(props) {
         showGoods(filteredProduct)
     }, [props.filteredProduct])
 
-    useEffect(() => getGoods, [])
-
-    function getGoods(){
-            // const url = 'https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish';
-            fetch('https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish')
-                .then(res => res.json())
-                .then(response => new Promise((resolve, reject) => {
-                    if (response.length !== 0) {
-                        resolve(response);
-                    } else {
-                        reject('помилка');
-                    }
-                }).then(response => {
-                    setGoods(response)
-                    showGoods(response)
-                    localStorage.setItem('goods', JSON.stringify(response))
-                }).then(() => {
-                    checkDeleteItem()
-                    let products = document.querySelectorAll('.js-product');
-                    setRemoveToCartHandler(products)
-                    }))
-    }
-    // let a = document.querySelector('cart-item__remove.hidden')
-    // a.addEventListener('click', () => setRemoveToCartHandler(products))
-                
+    useEffect(() => {
+        if(myArray.goods){
+            localStorage.setItem('goods', JSON.stringify(myArray.goods))
+            const items = JSON.parse(localStorage.getItem('goods'));
+            if(items){
+                setGoods(items)
+                showGoods(items)
+                checkDeleteItem()
+                let products = document.querySelectorAll('.js-product');
+                setRemoveToCartHandler(products)
+            }
+        }
+    }, [])
+           
     function showGoods(goods){
         goods.map(item => {
             const article = document.createElement('article');
@@ -168,8 +158,6 @@ function setRemoveToCartHandler(products) {
         })
     })
 }
-
-    
 
     return (
         <div className='wrapper'>
